@@ -46,6 +46,30 @@ body{
 input:focus{
     outline: none;
 }
+#spinnerContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+#spinner {
+    height: 40px;
+    width: 40px;
+    border: 7px solid white;
+    border-top-color: #0296E5;
+    border-radius: 50%;
+    animation: spinner 1s linear 0s infinite;
+  }
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 #moviesSection{
     display: flex;
     flex-wrap: wrap;

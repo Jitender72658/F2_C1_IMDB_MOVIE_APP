@@ -18,22 +18,26 @@ async function displayMovies(){
     }
     try {
         const url= `https://www.omdbapi.com/?s=${searchInput}&apikey=${apiKey}`;
+        document.getElementById("spinnerContainer").style.display = "flex";
         const response = await fetch(url); 
         if (!response.ok) {
             moviesSection.innerHTML="";
+            document.getElementById("spinnerContainer").style.display = "none";
             alert("Invalid api key. Please enter correct api key.")
             throw new Error('Error in fetching api');
-            return;
         }
          const data = await response.json();
-         if(data.Response==false){
+         if(data.Response===false){
+            document.getElementById("spinnerContainer").style.display = "none";
             showNoResult();
         }
         else{
+            document.getElementById("spinnerContainer").style.display = "none";
             addMoviesToList(data);
         }
            
     } catch (error) {
+        document.getElementById("spinnerContainer").style.display = "none";
         console.error('Fetch error:', error);
     }
 }
