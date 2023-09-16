@@ -25,22 +25,23 @@ async function displayMovies(){
             throw new Error('Error in fetching api');
             return;
         }
-            const data = await response.json();
-            if(data.Response!=false){
-                addMoviesToList(data);
-            }
-            else{
-                const noResultHeading = document.createElement('p');
-                noResultHeading.innerText="No matching result found";
-                moviesSection.appendChild(noResultHeading);
-                throw new Error('No result Found');
-              }
+         const data = await response.json();
+         if(data.Response==false){
+            showNoResult();
+        }
+        else{
+            addMoviesToList(data);
+        }
            
     } catch (error) {
         console.error('Fetch error:', error);
     }
 }
-
+function showNoResult(){
+        const noResultHeading = document.createElement('p');
+        noResultHeading.innerText="No matching result found";
+        moviesSection.appendChild(noResultHeading);
+}
 function addMoviesToList(movies){
       console.log(movies);
       moviesSection.innerHTML="";
