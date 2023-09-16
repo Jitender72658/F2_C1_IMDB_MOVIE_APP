@@ -17,7 +17,7 @@ async function displayMovies(){
         return;
     }
     try {
-        const url= `http://www.omdbapi.com/?s=${searchInput}&apikey=${apiKey}`;
+        const url= `https://www.omdbapi.com/?s=${searchInput}&apikey=${apiKey}`;
         const response = await fetch(url); 
         if(response==false){
             moviesSection.innerHTML=`<p id="noResultFound">No matching result found</p>`
