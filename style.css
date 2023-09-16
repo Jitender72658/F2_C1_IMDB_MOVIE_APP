@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body{
+    background-color: rgb(36,42,50);
+    font-family: sans-serif;
+    color: white;
+}
+#mainHeading{
+    text-align: center;
+    -webkit-text-stroke: 1px #0296E5 !important;
+    font-size: 75px;
+    -webkit-text-fill-color:transparent !important;
+    padding: 20px;
+}
+
+.inputButtonDiv{
+      position: absolute;
+}
+#searchButton{
+    position: relative;
+    background-color: rgb(58,63,71);
+    border:none;
+    right:50px;
+    top: 5px;
+    height: 20px;
+    padding: 10px;
+}
+#apiKeyImg{
+    position: relative;
+    right: 40px;
+    top: 5px;
+    height: 20px;
+}
+.inputDiv input{
+  background-color: rgb(58,63,71);
+  border: none;
+  width:90%;
+  margin: 10px auto;
+  margin-left: 5vw;
+  height: 45px;
+  border-radius: 5px;
+  padding: 5px 20px 5px 30px;
+  font-size: 20px;
+  box-sizing: border-box;
+  color: white;
+}
+input:focus{
+    outline: none;
+}
+#moviesSection{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-left: 60px;
+    gap: 60px;
+}
+#number{
+    -webkit-text-stroke: 1px #0296E5 !important;
+    font-size: 155px;
+    -webkit-text-fill-color:transparent !important;
+    position: absolute;
+    left: -30px;
+    bottom:-15px;
+}
+.movie{
+   margin: 5px;
+   box-sizing: border-box;
+   width: 250px;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 30px;
+}
+
+.movie-poster>img{
+    width:100%;
+    border-radius: 10px;
+    height: 320px;
+}
+
+#movieTitle{
+    padding-left: 70px;
+    margin-bottom: 25px;
+}
+.movie-title{
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 0px !important;
+   padding: 0px;
+}
+.publishDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:0px;
+    margin-bottom: 0px;
+    padding: 0px 15px;
+}
+.movie p{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.typeDiv{
+    margin-top: 0px;
+    padding-left: 15px !important;
+}
+#noResultFound{
+    text-align: center;
+}
+
