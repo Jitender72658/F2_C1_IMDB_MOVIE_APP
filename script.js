@@ -19,32 +19,41 @@ async function displayMovies(){
     try {
         const url= `https://www.omdbapi.com/?s=${searchInput}&apikey=${apiKey}`;
         const response = await fetch(url); 
-        if(response==false){
-            moviesSection.innerHTML=`<p id="noResultFound">No matching result found</p>`
-            return;
-          }
         if (!response.ok) {
             moviesSection.innerHTML="";
             alert("Invalid api key. Please enter correct api key.")
             throw new Error('Error in fetching api');
             return;
         }
-        if(response.ok){
             const data = await response.json();
-           addMoviesToList(data);
-        }
+            if(data.Response!=false){
+                addMoviesToList(data);
+            }
+            else{
+                const noResultHeading = document.createElement('p');
+                noResultHeading.innerText="No matching result found";
+                moviesSection.appendChild(noResultHeading);
+                throw new Error('No result Found');
+              }
+           
     } catch (error) {
         console.error('Fetch error:', error);
     }
 }
 
 function addMoviesToList(movies){
-    console.log(movies);
+      console.log(movies);
       moviesSection.innerHTML="";
       let number = 1;
+      if(movies.Search==null){
+        return;
+      }
     movies.Search.forEach((movie)=>{
        const movieDiv = document.createElement('div');
        movieDiv.classList.add("movie");
+       if(movie.Poster=="N/A"){
+        movie.Poster = "https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg"
+       }
        movieDiv.innerHTML = `<div class="movie-poster">
                                   <img src=${movie.Poster}>
                             </div>
